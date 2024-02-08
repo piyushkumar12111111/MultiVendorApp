@@ -37,6 +37,8 @@ class VendorStoreDetail extends StatelessWidget {
           );
         }
 
+        
+
         return SingleChildScrollView(
           child: Column(
             children: [

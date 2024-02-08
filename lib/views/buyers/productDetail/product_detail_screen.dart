@@ -24,7 +24,6 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
     final outPutDateFormate = DateFormat('dd/MM/yyyy');
 
     final outPutDate = outPutDateFormate.format(date);
-
     return outPutDate;
   }
 

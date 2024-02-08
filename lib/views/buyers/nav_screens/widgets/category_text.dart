@@ -27,6 +27,8 @@ class _CategoryTextState extends State<CategoryText> {
               fontSize: 19,
             ),
           ),
+
+          //! HERE WE HAVE TAKEN THE CODE FROM FLUTTERFIRE
           StreamBuilder<QuerySnapshot>(
             stream: _catgoryStream,
             builder:
@@ -51,7 +53,7 @@ class _CategoryTextState extends State<CategoryText> {
                         scrollDirection: Axis.horizontal,
                         itemCount: snapshot.data!.docs.length,
                         itemBuilder: (context, index) {
-                          final categoryData = snapshot.data!.docs[index];
+                          final categoryData = snapshot.data!.docs[index];  //! MAIN CODE FOR FETHING DATA FROM FIRESTORE
                           return Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: ActionChip(
@@ -87,6 +89,7 @@ class _CategoryTextState extends State<CategoryText> {
                       },
                       icon: Icon(Icons.arrow_forward_ios),
                     ),
+                   
                   ],
                 ),
               );

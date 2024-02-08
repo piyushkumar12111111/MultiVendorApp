@@ -15,7 +15,7 @@ class VendorRegistrationScreen extends StatefulWidget {
 }
 
 class _VendorRegistrationScreenState extends State<VendorRegistrationScreen> {
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();  //! for taking total validation 
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final VendorController _vendorController = VendorController();
   late String countryValue;
@@ -86,7 +86,7 @@ class _VendorRegistrationScreenState extends State<VendorRegistrationScreen> {
         slivers: [
           SliverAppBar(
             toolbarHeight: 200,
-            flexibleSpace: LayoutBuilder(builder: (context, constraints) {
+            flexibleSpace: LayoutBuilder(builder: (context, constraints) {   //! layout builder 
               return FlexibleSpaceBar(
                 background: Container(
                   decoration: BoxDecoration(

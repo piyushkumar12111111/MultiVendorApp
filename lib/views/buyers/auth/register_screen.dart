@@ -17,7 +17,7 @@ class RegisterScreen extends StatefulWidget {
 class _RegisterScreenState extends State<RegisterScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  final AuthController _authController = AuthController();
+  final AuthController _authController = AuthController();  //! THIS IS WE HAVE CREATED ON OUR OWN AUTH_CONTROLLER.DART
 
   Uint8List? _image;
   bool _isLoading = false;

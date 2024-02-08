@@ -11,7 +11,7 @@ class AuthController extends GetxController {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final FirebaseStorage _storage = FirebaseStorage.instance;
-//UPLOADING IMAGE AND PICK IMAGE
+//! UPLOADING IMAGE AND PICK IMAGE
 
   _uploadProfileImageToStorage(Uint8List? image) async {
     Reference ref =
@@ -26,6 +26,7 @@ class AuthController extends GetxController {
   }
 
   pickProfileImage(ImageSource source) async {
+    
     final ImagePicker _imagePicker = ImagePicker();
 
     XFile? _file = await _imagePicker.pickImage(source: source);
@@ -37,12 +38,12 @@ class AuthController extends GetxController {
     }
   }
 
-//UPLOADING IMAGE AND PICK IMAGE ENDS HERE
+//! UPLOADING IMAGE AND PICK IMAGE ENDS HERE
 
-//FUNCTION TO CREATE NEW USER
+//! FUNCTION TO CREATE NEW USER
   Future<String> createUser(String firstName, String lastName, String email,
       String password, Uint8List? image) async {
-    String res = 'some error occured';
+    String res = 'some error occured';  //! DEFAULT VALUE OF RESULT 
 
     try {
       if (image != null) {
@@ -51,7 +52,7 @@ class AuthController extends GetxController {
             email: email, password: password);
 
         String profileImageUrl = await _uploadProfileImageToStorage(image);
-
+//! for storing the data of user in the firestore we are not storing password 
         await _firestore.collection('buyers').doc(cred.user!.uid).set({
           'firstName': firstName,
           'lastName': lastName,
@@ -61,7 +62,7 @@ class AuthController extends GetxController {
           'buyerId': cred.user!.uid,
         });
 
-        res = 'success';
+        res = 'success';  
       } else {
         res = 'please Fields must be field in';
       }
@@ -72,9 +73,9 @@ class AuthController extends GetxController {
     return res;
   }
 
-  // FUNCTION TO CREATE NEW USER ENDS HERE
+  //! FUNCTION TO CREATE NEW USER ENDS HERE
 
-//FUNCTION TO LOGIN USER
+//! FUNCTION TO LOGIN USER
 
   Future<String> loginUser(
     String email,

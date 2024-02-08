@@ -9,7 +9,7 @@ class VendorController {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-//FUCTION TO STORE IMAGE IN FIREBASE STORAGE
+//!FUCTION TO STORE IMAGE IN FIREBASE STORAGE
 
   _uploadVendorImageToStorage(Uint8List? image) async {
     Reference ref =
@@ -24,7 +24,7 @@ class VendorController {
     return downloadUrl;
   }
 
-//FUNTION TO STORE IMAGE IN FIREBASE STORAGE ENDS HERE
+//!FUNTION TO STORE IMAGE IN FIREBASE STORAGE ENDS HERE
 
   //FUNCTION TO PICK STORE IMAGE
   pickStoreImage(ImageSource source) async {

@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:shimmer_animation/shimmer_animation.dart';
 
 class BannerWidget extends StatefulWidget {
+  //! WE HAVE MADE THIS STATEFUL BECAUSE WE HAVE TO MAKE BANNER CHANGES IN UI
   @override
   State<BannerWidget> createState() => _BannerWidgetState();
 }
@@ -13,13 +14,15 @@ class BannerWidget extends StatefulWidget {
 class _BannerWidgetState extends State<BannerWidget> {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  final List _bannerImage = [];
+  final List _bannerImage =
+      []; //! HERE WE STORE THE IMAGE URL COMING FROM FIRESTORE
 
   getBanners() {
     return _firestore
         .collection('banners')
         .get()
         .then((QuerySnapshot querySnapshot) {
+      //! THIS IS USED TO FETCH DATA FROM THE FIRESTORE
       querySnapshot.docs.forEach((doc) {
         setState(() {
           _bannerImage.add(doc['image']);
@@ -30,9 +33,12 @@ class _BannerWidgetState extends State<BannerWidget> {
 
   @override
   void initState() {
-    getBanners();
+    getBanners(); //! THIS IS INITSTATE FOR GETBANNER  //! this is trigger function to start getBaner when we come on this page
+
     super.initState();
   }
+
+  //! WE HAVE ALSO USED PAGEVIEW.BUILDER OPTION HERE TO display the fetched data
 
   @override
   Widget build(BuildContext context) {

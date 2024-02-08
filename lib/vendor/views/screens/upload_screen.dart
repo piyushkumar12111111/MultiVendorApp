@@ -19,9 +19,9 @@ class UploadScreen extends StatefulWidget {
 }
 
 class _UploadScreenState extends State<UploadScreen> {
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();  //! GLOBAL KEY DECLARATION
 
-  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;  //! FIRESTORE INITIALIZATION
 
   Widget build(BuildContext context) {
     final ProductProvider _productProvider =
@@ -34,6 +34,7 @@ class _UploadScreenState extends State<UploadScreen> {
           appBar: AppBar(
             backgroundColor: Colors.yellow.shade900,
             elevation: 0,
+            //! OPERATIONS OF TAB BAR 
             bottom: TabBar(tabs: [
               Tab(
                 child: Text('General'),
@@ -71,6 +72,8 @@ class _UploadScreenState extends State<UploadScreen> {
                     .doc(FirebaseAuth.instance.currentUser!.uid)
                     .get();
                 EasyLoading.show(status: 'Please Wait...');
+
+                //! HERE WE HAVE CODED FOR STORING DATA TO FIRESTORAGE
                 if (_formKey.currentState!.validate()) {
                   final productId = Uuid().v4();
                   await _firestore.collection('products').doc(productId).set({
